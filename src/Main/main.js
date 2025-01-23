@@ -44,6 +44,14 @@ function Main() {
     const [toBottom, setToBottom] = useState(false)
     const [nav, setNav] = useState(false)
 
+    function scrollToBottom() {
+        const messageContainer = document.getElementById("messageFormeight");
+        messageContainer.scrollTo({
+            top: messageContainer.scrollHeight,
+            behavior: 'smooth'
+        });
+    }
+
     //per avviare la conversazione
     function activateBot(event) {
         setNav(true);
@@ -61,6 +69,7 @@ function Main() {
     
         $("#text").val("");
         $("#messageFormeight").append(userHtml);
+        scrollToBottom();
     
         async function startSession() {
             let uuid = '7f5e5376dbf045cd8c72c60f428653d1';
@@ -100,12 +109,24 @@ function Main() {
         }
 
         async function typeText(characters, container) {
+            // Aggiungi i tre pallini che saltano
+            const dots = $('<div class="typing-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>');
+            $(container).append(dots);
+
+            // Attendi 3 secondi
+            await new Promise(resolve => setTimeout(resolve, 3000));
+
+            // Rimuovi i pallini
+            dots.remove();
+
+            // Mostra il messaggio lettera per lettera
             for (let i = 0; i < characters.length; i++) {
                 let currentMessage = characters.slice(0, i + 1).join('');
                 $(container).html(currentMessage);
                 await new Promise(resolve => setTimeout(resolve, 30));
             }
             $(container).append('<span class="msg_time">' + str_time + '</span>');
+            scrollToBottom();
         }
     
         startSession().then(response => {
@@ -168,11 +189,10 @@ function Main() {
         const OzStudio = document.querySelectorAll('.oz-text');
         const ContactContainer = document.querySelector('.contact-us-container');
         const ContactText = document.querySelector('.contact-text');
-        const formText = document.querySelectorAll('.form-cointrol');
         const Border1 = document.querySelectorAll('.contact__form .form-control');
         const Border2 = document.querySelectorAll('.contact__form .form-control-l');
         const divider = document.querySelector('.custom-divider');
-
+        const dot = document.querySelectorAll('.typing-dots span');
         const warner = document.querySelector('.warner');
         const sony = document.querySelector('.sony');
         const uni = document.querySelector('.uni');
@@ -263,6 +283,9 @@ function Main() {
                     ChiSiamoContainer.style.backgroundColor = 'white';
                     chiSiamo.style.backgroundColor = 'black';
                     divider.style.border = "1px solid #222222"
+                    dot.forEach(d => {
+                        d.style.backgroundColor = 'black';
+                    });
                     projectTitle.forEach(p => {
                         p.style.color = 'black';
                     });
@@ -374,6 +397,9 @@ function Main() {
                     });
                 }
                 if(homeContainer) {
+                    dot.forEach(d => {
+                        d.style.backgroundColor = 'white';
+                    });
                     powered.style.color = 'rgba(255,255,255,0.7)';
                     homeContainer.style.backgroundColor = 'black';
                     ChiSiamoContainer.style.backgroundColor = 'black';
@@ -501,7 +527,7 @@ function Main() {
                     </div>
                 </div>  
             </div>
-            <div className='chatbot-input-container'>
+            <div className='chatbot-input-container' style={{zIndex:"2 !important"}}>
                 <form id="messageArea" className="form-group" 
                 onSubmit={activateBot}>
                     <input type='text' id="text" name="msg" className={invertTheme ? 'chatbot-input dark' : 'chatbot-input'} placeholder='Raccontaci il tuo progetto...' autoComplete='off' required/>
@@ -523,13 +549,13 @@ function Main() {
                 <p className='chi-siamo-text'>Chi Siamo</p>
                 <div className='desc-oz'>
                     <p className='desc'>Fondata nel 2018 a Milano, Thinkgood Music è una realtà specializzata in Management, Publishing e Distribuzione Digitale. 
-                                        Con sede in Via Lanzone 25, la nostra struttura offre un ecosistema multiservizi che accompagna gli artisti dalla fase iniziale di progettualità fino alla creazione di percorsi di formazione direttamente all’interno dei nostri studi di registrazione.
-                                        Alla guida di Thinkgood Music c’è il CEO e Producer Pitto Stail, professionista attivo dal 2009, che ha collaborato con artisti di spicco come Axos, Dani Faiv, Zoda, Hellen, Ensi e su progetti di rilevanza nazionale, tra cui Sanremo 2019. 
+                                        Con sede in Via Lanzone 25, la nostra struttura offre un ecosistema multiservizi che accompagna gli artisti dalla fase iniziale di progettualità fino alla creazione di percorsi di formazione direttamente all'interno dei nostri studi di registrazione.
+                                        Alla guida di Thinkgood Music c'è il CEO e Producer Pitto Stail, professionista attivo dal 2009, che ha collaborato con artisti di spicco come Axos, Dani Faiv, Zoda, Hellen, Ensi e su progetti di rilevanza nazionale, tra cui Sanremo 2019. 
                                         Attualmente Pitto Stail è il direttore artistico di molti dei progetti che prendono vita nel 40oz Studio, il cuore pulsante della nostra struttura. Questo studio di registrazione è specializzato nella produzione musicale, garantendo un approccio altamente professionale e innovativo.
                                         <br></br><br></br>
                                         Oltre a supportare gli artisti nelle loro carriere, Thinkgood Music crede fermamente nella formazione dei nuovi talenti. Organizziamo masterclass esclusive in collaborazione con artisti e professionisti del settore discografico, 
-                                        offrendo un’opportunità unica per apprendere i segreti del mestiere e sviluppare le proprie competenze artistiche e tecniche.
-                                        Con un’attenzione costante alla qualità e un team appassionato, Thinkgood Music è il punto di riferimento per chi desidera trasformare la propria musica in un progetto di successo</p>
+                                        offrendo un'opportunità unica per apprendere i segreti del mestiere e sviluppare le proprie competenze artistiche e tecniche.
+                                        Con un'attenzione costante alla qualità e un team appassionato, Thinkgood Music è il punto di riferimento per chi desidera trasformare la propria musica in un progetto di successo</p>
                 </div>
                 <p className='founder-text' font-size="40px !important">Founder</p>
                 <div className='team-container'>
@@ -672,7 +698,7 @@ function Main() {
             <div className='oz-studio-container' id='40oz-studio'>
                 <p className='oz-text'>40oz Studio</p>
                 <div className='desc-oz'>
-                    <p className='desc'> 40oz Studio, con sede a Milano, è il luogo dove sono nati molti dei successi dell’ambito rap. Con
+                    <p className='desc'> 40oz Studio, con sede a Milano, è il luogo dove sono nati molti dei successi dell'ambito rap. Con
                                         una forte esperienza nella produzione musicale, lo studio si distingue per la sua capacità di spaziare
                                         tra diversi generi, tra cui Rap, RnB, Pop, Elettronica e Rock, offrendo una versatilità unica nel
                                         panorama musicale.<br></br>
@@ -715,7 +741,7 @@ function Main() {
             <div className='oz-studio-container' id='lavori'>
                 <p className='oz-text'>I Nostri Lavori</p>
                 <div className='desc-oz'>
-                    <p className='desc'> Thinkgood è una label discografica e un hub creativo a Milano, dedicato a trasformare le idee in progetti musicali e visivi di alto livello. Offriamo un percorso completo per artisti e creativi, dalla musica all’immagine.
+                    <p className='desc'> Thinkgood è una label discografica e un hub creativo a Milano, dedicato a trasformare le idee in progetti musicali e visivi di alto livello. Offriamo un percorso completo per artisti e creativi, dalla musica all'immagine.
 
 Nel nostro studio di registrazione lavoriamo con professionisti esperti per offrirti registrazioni di qualità, mix e mastering impeccabili e produzioni musicali su misura, con strumentali personalizzate che si adattano a ogni stile e budget.
 
@@ -885,7 +911,7 @@ Thinkgood è il punto di riferimento per chi cerca un ambiente creativo, profess
 
         <div className="logo-container">
             <p style={{ fontSize: '12px', textAlign: 'center', marginBottom:"-5px", zIndex:"2" }}>Supported by</p>
-            <div>
+            <div style={{zIndex:"1", backgroundColor:"transparent !important"}}>
                 <img className="warner" src={warner} alt="Logo 1" />
                 <img className="sony"src={sony} alt="Logo 2" />
                 <img className="uni"src={universal} alt="Logo 3" />
