@@ -1,0 +1,132 @@
+.privacy-policy-container {
+    height: 50vh;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+.navbar-container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+    transition: 2s ease;
+    z-index: 100;
+    transition: background-color 0s ease;
+    background-color: #222222;
+}
+
+.navbar-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-list li { 
+    font-size: 15px;
+    margin: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    filter: none;
+    z-index: 6;
+    color: white;
+}
+
+.navbar-list li:hover{
+    color: #d0d0d0;
+}
+
+.navbar-list li:hover {
+    transition: 0.2s ease;
+}
+
+h1 {
+    text-align: left;
+    margin-bottom: 5    0px;
+    color: white;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section p {
+    max-width: 1000px;
+}
+
+h2 {
+    color: gray;
+    text-align: left;
+}
+
+p {
+    line-height: 1.6;
+    text-align: left;
+    text-decoration: none;
+    list-style: none;
+}  
+
+ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.custom-divider {
+    width: 1000px;         
+    border: none;       
+    border-top: 2px solid white; 
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+    padding: 0 !important;
+}
+
+.mini-footer-text {
+    margin: 0; 
+    padding: 0;
+    color: gray !important;
+    text-align: center;
+}
+
+.mini-footer-text-a {
+    margin: 0; 
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s ease;
+    color: gray !important;
+}
+
+.mini-footer-text-a:hover {
+    color: white !important; 
+    cursor: pointer;
+    transition: 0.2s ease;  
+}
+
+.contact-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+}
+
+.contact-box-h {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    margin-top: 25px;
+}
+
+.footer-icon {
+    font-size: 20px;
+    margin-right: 5px;
+    color: gray !important;
+}
+

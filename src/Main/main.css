@@ -1,0 +1,481 @@
+*{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+    transition: filter 0.5s ease;
+}
+
+.main-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.powered {
+    font-size: 9px;
+    cursor: pointer;
+}
+
+.navbar-container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    transform: translateY(0);
+    transition: 2s ease;
+    z-index: 100;
+    transition: background-color 0s ease;
+}
+
+.navbar-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-list li { 
+    font-size: 15px;
+    margin: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    filter: none;
+    z-index: 6;
+}
+
+.navbar-list li:hover {
+    transition: 0.2s ease;
+}
+
+.navbar-bars {
+    display: flex;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    transform: translateX(0);
+    transition: 2s ease;
+    z-index: 5;
+}
+
+.navbar-bars.none {
+    transform: translateX(-200%);
+    transition: 2s ease;
+}
+
+.center-block {
+    position: relative;
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 1s ease;
+}
+
+.center-block.beetween {
+    margin-top: 40px;
+    height: 90%;
+    transition:  all 1s ease;
+}
+
+.thinkgood {
+    height: 200px;
+    color: white;
+    padding: 0;
+    transition: all 1s ease;
+}
+
+.thinkgood.beetween {
+    height: 65px;
+    transition: all 1s ease;
+}
+
+.chat-container {
+    display: flex;
+    height: 0%;
+    transition: all 1s ease;
+}
+
+.chat-container.view {
+    width: 500px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    transition: all 1s ease;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+	border-radius: 20px;
+	background-color: transparent;
+    border: none;
+}
+
+.msg_card_body { 
+	overflow-y: auto;
+}
+
+.card-body.msg_card_body {
+    max-height: 70vh;    
+    overflow-y: auto;
+}
+
+.user_img {
+	height: 70px;
+	width: 70px;
+	border:1.5px solid;
+}
+
+.user_img_msg{
+	height: 30px;
+	width: 30px;
+    color: black;
+    border: 0.5px solid black; 
+}
+
+.user_img_msg.dark{
+	height: 30px;
+	width: 30px;
+    color: white;
+    border: 0.5px solid white; 
+}
+
+.img_cont{
+	position: relative;
+	height: 70px;
+	width: 70px;
+}
+
+.img_cont_msg{
+	height: 40px;
+	width: 40px;
+}
+
+
+.msg_cotainer{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 2px;
+	border-radius: 10px;
+    max-width: 500px;
+	padding: 10px;
+	position: relative;
+    font-weight: 500;
+    text-align: left;
+    color: black;
+}
+
+.msg_cotainer.dark{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 2px;
+	border-radius: 10px;
+    max-width: 500px;
+	padding: 10px;
+	position: relative;
+    font-weight: 500;
+    text-align: left;
+    color: white;
+}
+
+.msg_cotainer_send{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: 2px;
+	border-radius: 10px;
+    max-width: 500px;
+	padding: 10px;
+	position: relative;
+    font-weight: 500;
+    text-align: right;
+    color: black;
+}
+
+.msg_cotainer_send.dark{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: 2px;
+	border-radius: 10px;
+    max-width: 500px;
+	padding: 10px;
+	position: relative;
+    font-weight: 500;
+    text-align: right;
+    color: white;
+}
+
+.msg_time{
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+    font-weight: 500;
+	font-size: 10px;
+    margin-left: 10px;
+}
+
+.msg_time_send{
+	position: absolute;
+	right:0;
+	bottom: -5px;
+    font-weight: 500;
+	font-size: 10px;
+    margin-right: 10px;
+}
+.msg_time_send.dark{
+	position: absolute;
+	right:0;
+	bottom: -5px;
+    font-weight: 500;
+	font-size: 10px;
+    margin-right: 10px;
+}
+
+.chatbot-input-container {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px; 
+    margin-bottom: 30px;
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chatbot-input {
+    position: relative;
+    width: 70%;
+    padding: 15px;
+    border-radius: 20px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 1rem;
+    color: black;
+    background-color: white;
+}
+
+.chatbot-input.dark {
+    position: relative;
+    width: 70%;
+    padding: 15px;
+    border-radius: 20px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 1rem;
+    color: black;
+    background-color: white;
+}
+
+.chatbot-input::placeholder {
+    color: white;
+    transition: 0.2s;
+}
+
+.chatbot-input.dark::placeholder {
+    color: black;
+    transition: 0.2s;
+}
+
+.chatbot-start {
+    position: relative;
+    width: 80px;
+    padding: 10px 12px 10px 12px;
+    margin-right: 5px;
+    background-color: rgba(0, 110, 230, 1);
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.7s ease;
+    font-size: 1rem;
+}
+
+.chatbot-start:hover {
+    background-color: rgba(0, 110, 230, 0.8);
+    transition: all 0.7s ease;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 20px; 
+    cursor: pointer;
+}
+
+.display-mode-container.nav {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: baseline;
+    transition: 0.7s;
+    z-index: 101;
+}
+
+.display-mode-container {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    align-items: baseline;
+    transition: 0.7s;
+    z-index: 101;
+}
+
+.display-mode {
+    width: 80px;
+    height: 32px;
+    position: relative;
+    display: block;
+    border-radius: 32px;
+    background-color: #242424;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.8);
+}
+
+.display-mode:after {
+    content: "";
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-image: linear-gradient(180deg,black,#3a3a3a);
+    border-radius: 29px;
+    box-shadow: 0px 2.5px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.input-mode{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.input-mode:checked + .display-mode:after {
+    left: 78px;
+    transform: translateX(-100%);
+}
+
+.display-mode, .display-mode:after {
+    transition: 0.3s;
+}
+
+.display-mode img {
+    position: absolute;
+    width: 20px;
+    z-index: 100;
+}
+
+.display-mode img.sun {
+    top: 6.25px;
+    left: 54.25px;
+    filter: invert(70%);
+    cursor: pointer;
+}
+
+.display-mode img.moon {
+    top: 6.25px;
+    left: 5.25px;
+    filter: invert(70%);
+    cursor: pointer;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    gap: 0;
+}
+
+.logo-container img {
+    height: 45px; /* Adjust height as needed */
+    width: auto; /* Maintain aspect ratio */
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .chat-container.view {
+        width: 300px;
+    }
+
+    .chatbot-input-container {
+        width: 300px;
+    }
+    .chatbot-input {
+        font-size: 0.85rem !important;
+    }
+
+    .chatbot-start {
+        font-size: 0.85rem !important;
+    }
+
+    .powered {
+        position: absolute;
+        bottom: 2px;
+        font-size: 8px;
+        cursor: pointer;
+    }
+
+    .navbar-list {
+        gap: 5px;
+    }
+    
+    .navbar-list li {
+        font-size: 12px;
+    }
+
+    .navbar-bars {
+        top: 20px;
+        left: 20px;
+    }
+
+    .center-block {
+        height: 15rem;
+    }
+
+    .thinkgood {
+        height: 100px;
+        color: white;
+        padding: 0;
+        transition: all 1s ease;
+    }
+
+    .display-mode-container.nav, .display-mode-container {
+        top: 75px;
+    }
+
+
+    .custom-swiper {
+        max-width: 1000px;
+    }
+}
