@@ -214,8 +214,9 @@ border-radius: 0 0 15px 15px !important;
 	cursor: pointer;
 	background-color: rgba(0,0,0,0.2);
 }
+
 @media(max-width: 576px){
 	.contacts_card{
-	margin-bottom: 15px !important;
-}
+		margin-bottom: 15px !important;
+	}
 }

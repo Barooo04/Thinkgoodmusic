@@ -72,7 +72,7 @@ body {
 .center-block {
     position: relative;
     width: 100%;
-    height: 20rem;
+    height: 30rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,7 +106,7 @@ body {
 
 .chat-container.view {
     width: 500px;
-    height: 100%;
+    height: 79% !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -270,8 +270,6 @@ body {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     font-size: 1rem;
-    color: black;
-    background-color: white;
 }
 
 .chatbot-input.dark {
@@ -282,17 +280,11 @@ body {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     font-size: 1rem;
-    color: black;
-    background-color: white;
+
 }
 
 .chatbot-input::placeholder {
-    color: white;
-    transition: 0.2s;
-}
-
-.chatbot-input.dark::placeholder {
-    color: black;
+    color: #7d7d7d;
     transition: 0.2s;
 }
 

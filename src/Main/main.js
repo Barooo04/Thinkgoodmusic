@@ -20,8 +20,6 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import studio1 from '../Images/Studio2.jpeg';
-
 import warner from '../Images/WMG_Logo.jpg'
 import sony from '../Images/sony.png'
 import universal from '../Images/uni.png'
@@ -40,9 +38,9 @@ import g6 from '../Images/gallery6.jpg'
 
 
 function Main() {
-
     const [toBottom, setToBottom] = useState(false)
     const [nav, setNav] = useState(false)
+    const [menu, setMenu] = useState(false)
 
     function scrollToBottom() {
         const messageContainer = document.getElementById("messageFormeight");
@@ -134,12 +132,6 @@ function Main() {
             let message = rawText;
             sendMessage(message, session_uuid).then(async risposta => {
                 let characters = risposta.split('');
-                
-                const date = new Date();
-                const hour = date.getHours();
-                const minute = date.getMinutes();
-                const str_time = hour+":"+minute;
-
                 let $botMessageContainer = $('<div class="d-flex justify-content-start mb-4"></div>');
                 let $botImage = $('<div class="img_cont_msg"><div class="' + (invertTheme ? "rounded-circle user_img_msg" : "rounded-circle user_img_msg dark") + '" style="display:flex; align-items:center; justify-content:center;"><i class="fas fa-headphones"></i></div></div>');
                 let $botMessage = $('<div class="' + (invertTheme ? "msg_cotainer" : "msg_cotainer dark") + '"></div>');
@@ -158,7 +150,6 @@ function Main() {
     }   
     
     const [invertTheme, setInvertTheme] = useState(false)
-
     //per invertire i colori in base al tema selezionato
     useEffect(() => {
         const body = document.body;
@@ -204,6 +195,7 @@ function Main() {
 
         const scrollBar = document.querySelector('::-webkit-scrollbar-thumb');
 
+        //white theme
         if (invertTheme) {
             setTimeout(() => {
                 if(scrollBar){
@@ -281,7 +273,8 @@ function Main() {
                     powered.style.color = 'rgba(1,1,1,0.7)';
                     homeContainer.style.backgroundColor = 'white';
                     ChiSiamoContainer.style.backgroundColor = 'white';
-                    chiSiamo.style.backgroundColor = 'black';
+                    chiSiamo.style.backgroundColor = 'white';
+                    chiSiamo.style.color = 'black';
                     divider.style.border = "1px solid #222222"
                     dot.forEach(d => {
                         d.style.backgroundColor = 'black';
@@ -403,6 +396,7 @@ function Main() {
                     powered.style.color = 'rgba(255,255,255,0.7)';
                     homeContainer.style.backgroundColor = 'black';
                     ChiSiamoContainer.style.backgroundColor = 'black';
+                    chiSiamo.style.backgroundColor = 'black';
                     chiSiamo.style.color = 'white';
                     divider.style.border = "1px solid rgba(255,255,255,0.8)"
 
@@ -446,14 +440,12 @@ function Main() {
                 }            
             }, 100);
         }
-    }, [invertTheme]);
+    }, [invertTheme, menu, nav]);
 
     //cambiare il tema
     function handleThemeChange() {
         setInvertTheme(!invertTheme);
     }
-
-    const [menu, setMenu] = useState(false)
 
     //andare nella sezione cliccata
     const moveTo = (id) => {
@@ -496,13 +488,13 @@ function Main() {
                 });
             }, 100);
         }
-    }, [menu]);
+    }, [menu, nav]);
 
     const members = [
-        { name: "Lorenzo D'Ercole", role: 'A&R', image: team, desc: 'A&R' },
-        { name: 'Simone Scarfone', role: 'Head of Visual & Branding', image: team, desc: 'Head of Visual & Branding' },
-        { name: 'Valentina Pirovano', role: 'Social Media Manager', image: team, desc: 'Social Media Manager' },
-        { name: 'Alessio Cristello', role: 'Head of Sales', image: team, desc: 'Head of Sales' }
+        { name: "Lorenzo D'Ercole", role: 'A&R', image: team, desc: 'A&R', linkedin: 'https://www.linkedin.com/in/lorenzo-d-ercole-77682a224/' },
+        { name: 'Simone Scarfone', role: 'Head of Visual & Branding', image: team, desc: 'Head of Visual & Branding', linkedin: 'https://www.linkedin.com/in/simone-scarfone-383b742b5/' },
+        { name: 'Valentina Pirovano', role: 'Social Media Manager', image: team, desc: 'Social Media Manager', linkedin: 'https://www.linkedin.com/' },
+        { name: 'Alessio Cristello', role: 'Head of Sales', image: team, desc: 'Head of Sales', linkedin: 'https://www.linkedin.com/in/alessio-cristello-7b136a1bb/' }
     ];
 
   return (
@@ -572,16 +564,10 @@ function Main() {
                             <p className='desc'>CEO</p>
                         </div>
                         <div class="icons">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#">
+                            <a href="https://www.linkedin.com/in/tonypensabene00/" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="#">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#">
+                            <a href="mailto:tony.paolopensabene@gmail.com" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-envelope"></i>
                             </a>
                         </div>
@@ -602,16 +588,10 @@ function Main() {
                             <p className='desc'>COO</p>
                         </div>
                         <div class="icons">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#">
+                            <a href="https://www.linkedin.com/in/alessio-chiapino-457013254/" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="#">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#">
+                            <a href="mailto:alessiochiapino025@gmail.com" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-envelope"></i>
                             </a>
                         </div>
@@ -628,17 +608,8 @@ function Main() {
                             <p className='desc'>CFO</p>
                         </div>
                         <div class="icons">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#">
+                            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" style={{marginRight: 0}}>
-                                <i class="fas fa-envelope"></i>
                             </a>
                         </div>
                     </div>
@@ -676,17 +647,8 @@ function Main() {
                                         <p className="desc">{member.role}</p>
                                     </div>
                                     <div className="icons">
-                                        <a href="#">
-                                            <i className="fab fa-twitter"></i>
-                                        </a>
-                                        <a href="#">
+                                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
                                             <i className="fab fa-linkedin"></i>
-                                        </a>
-                                        <a href="#">
-                                            <i className="fab fa-github"></i>
-                                        </a>
-                                        <a href="#">
-                                            <i className="fas fa-envelope"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -839,7 +801,7 @@ Thinkgood è il punto di riferimento per chi cerca un ambiente creativo, profess
                 <p className='contact-text'>Contattaci</p>
                 <div className='map-form-container'>
                     <div className="map-container">
-                        <iframe border-radius="15px" width="80%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Via%20Lanzone%2025%2020123%20Milano,%20Lombardia+(Thinkgood)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                        <iframe title="Thinkgood" border-radius="15px" width="80%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Via%20Lanzone%2025%2020123%20Milano,%20Lombardia+(Thinkgood)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                             <a href="https://www.gps.ie/">gps devices</a>
                         </iframe>
                     </div>
