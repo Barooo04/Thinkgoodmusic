@@ -32,6 +32,10 @@ body {
     transition: background-color 0s ease;
 }
 
+.navbar-container-mobile {
+    display: none;
+}
+
 .navbar-list {
     display: flex;
     align-items: center;
@@ -451,6 +455,59 @@ body {
 
 @media screen and (max-width: 768px) {
 
+    .navbar-container {
+        display: none;
+    }
+
+    .navbar-container-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 101;
+    }
+
+    .menu-appear {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        top: 85px;
+        z-index: 99;
+        width: 80%;
+        right: 10%;
+        transition: height 0.3s ease;
+        text-align: right;
+        border-radius: 0 0 20px 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        height: 0;
+        overflow: hidden;
+    }
+
+    .menu-appear.view {
+        transition: height 0.3s ease;
+        height: 48vh;
+    }
+
+    .menu-item {
+        position: relative;
+        color: white;
+        background-color: transparent;
+        transition: 0.3s ease;
+        border-radius: 20px;
+        height: 8vh;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-origin: top;
+    }
+
     .chat-container.view {
         width: 300px;
     }
@@ -498,9 +555,17 @@ body {
     }
 
     .display-mode-container.nav, .display-mode-container {
-        top: 75px;
+        display: none;
     }
 
+    .display-mode-container-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 0;
+        z-index: 101;
+        padding: 10px;
+    }
 
     .custom-swiper {
         max-width: 1000px;

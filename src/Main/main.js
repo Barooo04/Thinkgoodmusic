@@ -6,6 +6,8 @@ import $ from 'jquery';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { Squash as Hamburger } from 'hamburger-react'
+
 import logo from '../LoghiTGM/ScrittaBianca.png';
 import sun from './ImageTheme/sun.png';
 import moon from './ImageTheme/moon.png';
@@ -41,6 +43,7 @@ function Main() {
     const [toBottom, setToBottom] = useState(false)
     const [nav, setNav] = useState(false)
     const [menu, setMenu] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     function scrollToBottom() {
         const messageContainer = document.getElementById("messageFormeight");
@@ -507,6 +510,23 @@ function Main() {
                 <li onClick={() => moveTo('lavori')}>I Nostri Lavori</li>
                 <li onClick={() => moveTo('contatti')}>Contatti</li>
             </ul>
+        </div>
+
+        <div className='navbar-container-mobile'>
+            <Hamburger size={30} toggle={setIsMenuOpen} toggled={isMenuOpen} color='white'/>
+            <div className={`menu-appear ${!isMenuOpen ? '' : 'view'}`}>
+                <p className='menu-item' onClick={() => { moveTo('chi-siamo'); setIsMenuOpen(false); }}>Chi Siamo</p>
+                <p className='menu-item' onClick={() => { moveTo('40oz-studio'); setIsMenuOpen(false); }}>40oz Studio</p>
+                <p className='menu-item' onClick={() => { moveTo('lavori'); }}>I Nostri Lavori</p>
+                <p className='menu-item' onClick={() => { moveTo('contatti'); }}>Contatti</p>
+                <div className={toBottom ? "display-mode-container-mobile" : "display-mode-container-mobile nav"}>
+                    <input className='input-mode' type='checkbox' id='dark-toggle'onChange={handleThemeChange} checked={invertTheme}/>
+                    <label className='display-mode' htmlFor='dark-toggle'>
+                        <img className="moon" src={moon} alt='' />
+                        <img className="sun" src={sun} alt='' />
+                    </label>
+                </div>
+            </div>
         </div>
        
         <div className={toBottom ? 'center-block beetween' : 'center-block'}>

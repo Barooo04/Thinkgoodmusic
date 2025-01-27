@@ -194,7 +194,7 @@
 }
 
 .custom-divider {
-    width: 1000px;         
+    width: 100% !important;         
     border: none;       
     border-top: 2px solid white; 
     margin-top: 0;
