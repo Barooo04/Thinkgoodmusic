@@ -53,7 +53,7 @@ function Main() {
         });
     }
 
-    //per avviare la conversazione
+    //per avviare la conversazione.
     function activateBot(event) {
         setNav(true);
         event.preventDefault();
