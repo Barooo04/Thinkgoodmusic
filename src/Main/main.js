@@ -71,7 +71,18 @@ function Main() {
         $("#text").val("");
         $("#messageFormeight").append(userHtml);
         scrollToBottom();
-    
+
+        // Aggiungi l'icona del bot e i pallini subito dopo l'invio del messaggio
+        let $botMessageContainer = $('<div class="d-flex justify-content-start mb-4"></div>');
+        let $botImage = $('<div class="img_cont_msg"><div class="' + (invertTheme ? "rounded-circle user_img_msg" : "rounded-circle user_img_msg dark") + '" style="display:flex; align-items:center; justify-content:center;"><i class="fas fa-headphones"></i></div></div>');
+        let $botMessage = $('<div class="' + (invertTheme ? "msg_cotainer" : "msg_cotainer dark") + '"></div>');
+        const dots = $('<div class="typing-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>');
+
+        $botMessage.append(dots);
+        $botMessageContainer.append($botImage);
+        $botMessageContainer.append($botMessage);
+        $("#messageFormeight").append($botMessageContainer);
+
         async function startSession() {
             let uuid = '7f5e5376dbf045cd8c72c60f428653d1';
             let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzQ1MDI4NiwianRpIjoiMTAyZGM5MDktYjk4ZS00MTQyLWEzY2YtODRjODFiNDFmMzg2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJhcGlfa2V5IjoiMWU5ZDAwNDU0MjBiMjcyYmU1NTBkYzViOTU1NTdkNmUzMzY5ZDQyYzVkM2ViMDVmNTQwMWM0ZGQzZTVmMDU1YSJ9LCJuYmYiOjE3Mzc0NTAyODZ9._b3nwv9vxA8ECRs0NSR92iNBLtzSHSPcsh68Ll5dZ7A';
@@ -110,22 +121,12 @@ function Main() {
         }
 
         async function typeText(characters, container) {
-            // Aggiungi i tre pallini che saltano
-            const dots = $('<div class="typing-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>');
-            $(container).append(dots);
-
-            // Attendi 3 secondi
-            await new Promise(resolve => setTimeout(resolve, 3000));
-
-            // Rimuovi i pallini
+            // Rimuovi i pallini dopo 4 secondi
+            await new Promise(resolve => setTimeout(resolve, 4000));
             dots.remove();
 
-            // Mostra il messaggio lettera per lettera
-            for (let i = 0; i < characters.length; i++) {
-                let currentMessage = characters.slice(0, i + 1).join('');
-                $(container).html(currentMessage);
-                await new Promise(resolve => setTimeout(resolve, 30));
-            }
+            // Mostra l'intero messaggio
+            $(container).html(characters.join(''));
             $(container).append('<span class="msg_time">' + str_time + '</span>');
             scrollToBottom();
         }
@@ -135,15 +136,6 @@ function Main() {
             let message = rawText;
             sendMessage(message, session_uuid).then(async risposta => {
                 let characters = risposta.split('');
-                let $botMessageContainer = $('<div class="d-flex justify-content-start mb-4"></div>');
-                let $botImage = $('<div class="img_cont_msg"><div class="' + (invertTheme ? "rounded-circle user_img_msg" : "rounded-circle user_img_msg dark") + '" style="display:flex; align-items:center; justify-content:center;"><i class="fas fa-headphones"></i></div></div>');
-                let $botMessage = $('<div class="' + (invertTheme ? "msg_cotainer" : "msg_cotainer dark") + '"></div>');
-        
-                $botMessageContainer.append($botImage);
-                $botMessageContainer.append($botMessage);
-        
-                $("#messageFormeight").append($botMessageContainer);
-        
                 await typeText(characters, $botMessage);
             });
         });
@@ -517,8 +509,8 @@ function Main() {
             <div className={`menu-appear ${!isMenuOpen ? '' : 'view'}`}>
                 <p className='menu-item' onClick={() => { moveTo('chi-siamo'); setIsMenuOpen(false); }}>Chi Siamo</p>
                 <p className='menu-item' onClick={() => { moveTo('40oz-studio'); setIsMenuOpen(false); }}>40oz Studio</p>
-                <p className='menu-item' onClick={() => { moveTo('lavori'); }}>I Nostri Lavori</p>
-                <p className='menu-item' onClick={() => { moveTo('contatti'); }}>Contatti</p>
+                <p className='menu-item' onClick={() => { moveTo('lavori'); setIsMenuOpen(false); }}>I Nostri Lavori</p>
+                <p className='menu-item' onClick={() => { moveTo('contatti'); setIsMenuOpen(false); }}>Contatti</p>
                 <div className={toBottom ? "display-mode-container-mobile" : "display-mode-container-mobile nav"}>
                     <input className='input-mode' type='checkbox' id='dark-toggle'onChange={handleThemeChange} checked={invertTheme}/>
                     <label className='display-mode' htmlFor='dark-toggle'>
