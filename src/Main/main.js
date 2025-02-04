@@ -202,7 +202,7 @@ function Main() {
                 if (menu || nav) {
                     setTimeout(() => {
                         const navbarBGColor = getComputedStyle(navbarBG).backgroundColor;
-                        navbarBG.style.backgroundColor = navbarBGColor.replace(/rgba?\((\d+), (\d+), (\d+)(, \d+(\.\d+)?)?\)/, 'rgba($1, $2, $3, 0.8)');
+                        navbarBG.style.backgroundColor = navbarBGColor.replace(/rgba?\((\d+), (\d+), (\d+)(, \d+(\.\d+)?)?\)/, 'rgba($1, $2, $3, 1)');
                         
                         navbarLi.forEach(li => {
                             const liColor = getComputedStyle(li).color;
@@ -326,7 +326,7 @@ function Main() {
                 if (menu) {
                     setTimeout(() => {
                         const navbarBGColor = getComputedStyle(navbarBG).backgroundColor;
-                        navbarBG.style.backgroundColor = navbarBGColor.replace(/rgba?\((\d+), (\d+), (\d+)(, \d+(\.\d+)?)?\)/, 'rgba($1, $2, $3, 0.8)');
+                        navbarBG.style.backgroundColor = navbarBGColor.replace(/rgba?\((\d+), (\d+), (\d+)(, \d+(\.\d+)?)?\)/, 'rgba($1, $2, $3, 1)');
                         
                         navbarLi.forEach(li => {
                             const liColor = getComputedStyle(li).color;
@@ -629,8 +629,8 @@ function Main() {
                 <p className='founder-text' font-size="40px !important">Team</p>
                     <Swiper
                         modules={[Pagination, Navigation]}
-                        initialSlide={1}
-                        slidesPerView={3} 
+                        initialSlide={2}
+                        slidesPerView={1} 
                         spaceBetween={10} 
                         centeredSlides={true}
                         grabCursor={true}
@@ -862,22 +862,22 @@ Thinkgood è il punto di riferimento per chi cerca un ambiente creativo, profess
                 </div>
                 <hr className='custom-divider'></hr>
                 <div style={{ display: 'flex', flexDirection:'column', marginBottom:20, gap:10}}>
-                    <div className='contact-box'>
-                        <a className='mini-footer-text-a' style={{marginRight: 20}}  href="https://www.instagram.com/thinkgood_music/"><FontAwesomeIcon className="footer-icon" icon={faInstagram} /></a>
-                        <a className='mini-footer-text-a' style={{marginRight: 20}} href="https://www.linkedin.com/company/thinkgood/"><FontAwesomeIcon className="footer-icon" icon={faLinkedin} /></a>
+                    <div className='contact-box-icons'>
+                        <a className='mini-footer-text-a'  href="https://www.instagram.com/thinkgood_music/"><FontAwesomeIcon className="footer-icon" icon={faInstagram} /></a>
+                        <a className='mini-footer-text-a'  href="https://www.linkedin.com/company/thinkgood/"><FontAwesomeIcon className="footer-icon" icon={faLinkedin} /></a>
                     </div>
                     <p className='mini-footer-text'style={{marginBottom: 0}}>Thinkgood Srls - Via Lanzone 25 Milano 20123 - P.IVA 12414860960</p>
                     <div className='contact-box'>
                         <FontAwesomeIcon className="footer-icon" icon={faPhone} />
-                        <a className='mini-footer-text-a' style={{marginRight: 20}}  href="tel:3472988931">+39 3472988931</a>
+                        <a className='mini-footer-text-a' style={{marginRight: 20}} href="tel:3472988931">+39 3472988931</a>
                         <FontAwesomeIcon className="footer-icon" icon={faEnvelope} />
                         <a className='mini-footer-text-a' style={{marginRight: 20}} href="mailto:amministrazione@thinkgoodmusic.com">amministrazione@thinkgoodmusic.com</a>
                         <FontAwesomeIcon className="footer-icon" icon={faShieldAlt} />
                         <a className='mini-footer-text-a' style={{marginRight: 20}} href="mailto:thinkgood@pec.it" >thinkgood@pec.it</a>
                     </div>
-                    <div className='contact-box' style={{gap: 20}}>
-                        <a className='mini-footer-text powered'style={{marginBottom: 0}} href="/privacy" >Privacy & Policy</a>
-                        <a className='mini-footer-text powered'style={{marginBottom: 0}} href="https://www.hi-dev.it/"  >Powered by Hidev</a>
+                    <div className='contact-box-powered' style={{gap: 20}}>
+                        <a className='mini-footer-text powered'style={{marginBottom: 5}} href="/privacy" >Privacy & Policy</a>
+                        <a className='mini-footer-text powered'style={{marginBottom: 5}} href="https://www.hi-dev.it/"  >Powered by Hidev</a>
                     </div>
                 </div>
             </div>

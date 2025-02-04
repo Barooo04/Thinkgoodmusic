@@ -102,7 +102,7 @@
     transition: 0.2s ease;  
   }
   
-  .contact-box {
+  .contact-box-comingsoon{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -156,11 +156,11 @@
       display: inline;
     }
   
-    .mini-footer-text{
+    .mini-footer-text-comingsoon{
       display: none;
     }
   
-    .contact-box{
+    .contact-box-comingsoon{
       flex-direction: column;
       align-items: center; /* Cambiato da flex-start a center */
       margin-bottom: 2rem;

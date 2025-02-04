@@ -524,7 +524,6 @@ body {
     }
 
     .powered {
-        position: absolute;
         bottom: 2px;
         font-size: 8px;
         cursor: pointer;

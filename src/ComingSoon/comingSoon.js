@@ -28,7 +28,7 @@ function ComingSoon() {
               <p className="mini-footer-text-mobile">Via Lanzone 25 Milano 20123</p>
               <p className="mini-footer-text-mobile">P.IVA 12414860960</p>
             </div>
-            <div className="contact-box">
+            <div className="contact-box-comingsoon">
                 <i className="footer-icon fas fa-phone"></i>
                 <a className="mini-footer-text-a" id="contact-margin-right" href="tel:3472988931">3472988931</a>
                 <i className="footer-icon fas fa-envelope"></i>

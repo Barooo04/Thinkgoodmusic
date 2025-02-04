@@ -108,12 +108,12 @@ function Privacy() {
 
             <hr className='custom-divider'></hr>
                 <div style={{display: 'flex', flexDirection:'column', marginBottom:20, gap:10}}>
-                    <div className='contact-box'>
+                    <div className='contact-box-privacy'>
                         <a className='mini-footer-text-a' style={{marginRight: 20}}  href="https://www.instagram.com/thinkgood_music/"><FontAwesomeIcon className="footer-icon" icon={faInstagram} /></a>
                         <a className='mini-footer-text-a' style={{marginRight: 20}} href="https://www.linkedin.com/company/thinkgood/"><FontAwesomeIcon className="footer-icon" icon={faLinkedin} /></a>
                     </div>
                     <p className='mini-footer-text'style={{marginBottom: 0}}>Thinkgood Srls - Via Lanzone 25 Milano 20123 - P.IVA 12414860960</p>
-                    <div className='contact-box'>
+                    <div className='contact-box-privacy'>
                         <FontAwesomeIcon className="footer-icon" icon={faPhone} />
                         <a className='mini-footer-text-a' style={{marginRight: 20}}  href="tel:3472988931">+39 3472988931</a>
                         <FontAwesomeIcon className="footer-icon" icon={faEnvelope} />
