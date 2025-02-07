@@ -44,6 +44,7 @@ function Main() {
     const [nav, setNav] = useState(false)
     const [menu, setMenu] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [sessionUUID, setSessionUUID] = useState(localStorage.getItem('sessionUUID'))
 
     function scrollToBottom() {
         const messageContainer = document.getElementById("messageFormeight");
@@ -54,7 +55,7 @@ function Main() {
     }
 
     //per avviare la conversazione.
-    function activateBot(event) {
+    async function activateBot(event) {
         setNav(true);
         event.preventDefault();
         setToBottom(true);
@@ -131,14 +132,21 @@ function Main() {
             scrollToBottom();
         }
     
-        startSession().then(response => {
-            let session_uuid = response.uuid;
-            let message = rawText;
-            sendMessage(message, session_uuid).then(async risposta => {
+        if (!sessionUUID) {
+            startSession().then(response => {
+                setSessionUUID(response.uuid);
+                localStorage.setItem('sessionUUID', response.uuid);
+                sendMessage(rawText, response.uuid).then(async risposta => {
+                    let characters = risposta.split('');
+                    await typeText(characters, $botMessage);
+                });
+            });
+        } else {
+            sendMessage(rawText, sessionUUID).then(async risposta => {
                 let characters = risposta.split('');
                 await typeText(characters, $botMessage);
             });
-        });
+        }
         
     
         $("#messageArea").off("submit");
