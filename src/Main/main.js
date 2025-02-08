@@ -38,6 +38,7 @@ import g4 from '../Images/gallery4.jpg'
 import g5 from '../Images/gallery5.jpg'
 import g6 from '../Images/gallery6.jpg'
 
+import asssitant from '../Images/assistant.jpeg'
 
 function Main() {
     const [toBottom, setToBottom] = useState(false)
@@ -67,7 +68,7 @@ function Main() {
         const str_time = hour + ":" + minute;
         var rawText = $("#text").val();
     
-        var userHtml = '<div class="d-flex justify-content-end mb-4"><div class="' + (invertTheme ? "msg_cotainer_send" : "msg_cotainer_send dark") + '">' + rawText + '<span class="msg_time_send">' + str_time + '</span></div><div class="img_cont_msg"><div class="' + (invertTheme ? "rounded-circle user_img_msg" : "rounded-circle user_img_msg dark") + '" style="display:flex; align-items:center; justify-content:center;"><i class="fas fa-user"></i></div></div></div>';
+        var userHtml = '<div class="d-flex justify-content-end mb-4"><div class="' + (invertTheme ? "msg_cotainer_send" : "msg_cotainer_send dark") + '">' + rawText + '<span class="msg_time_send">' + str_time + '</span></div><div class="img_cont_msg"><div class="' + (invertTheme ? "rounded-circle user_img_msg" : "rounded-circle user_img_msg dark") + '" style="display:flex; align-items:center; justify-content:center; height: 45px; width: 45px;"><i class="fas fa-user" style="font-size: 25px;"></i></div></div></div>';
     
         $("#text").val("");
         $("#messageFormeight").append(userHtml);
@@ -75,7 +76,7 @@ function Main() {
 
         // Aggiungi l'icona del bot e i pallini subito dopo l'invio del messaggio
         let $botMessageContainer = $('<div class="d-flex justify-content-start mb-4"></div>');
-        let $botImage = $('<div class="img_cont_msg"><div class="' + (invertTheme ? "rounded-circle user_img_msg" : "rounded-circle user_img_msg dark") + '" style="display:flex; align-items:center; justify-content:center;"><i class="fas fa-headphones"></i></div></div>');
+        let $botImage = $('<div class="img_cont_msg"><img src="' + asssitant + '" class="' + (invertTheme ? "rounded-circle user_img_msg" : "rounded-circle user_img_msg dark") + '" style="display:flex; align-items:center; justify-content:center; height: 45px; width: 45px;" alt="Assistant" /></div>');
         let $botMessage = $('<div class="' + (invertTheme ? "msg_cotainer" : "msg_cotainer dark") + '"></div>');
         const dots = $('<div class="typing-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>');
 
