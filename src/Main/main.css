@@ -407,16 +407,26 @@ body {
     flex-direction: column;
     justify-content: center;
     position: absolute;
-    bottom: 0px;
+    bottom: 10px;
     left: 0;
     right: 0;
     margin: 0;
-    gap: 0;
+    gap: 5px;
 }
 
-.logo-container img {
-    height: 45px; /* Adjust height as needed */
-    width: auto; /* Maintain aspect ratio */
+.sony {
+    height: 15px; 
+    width: auto;
+}
+
+.warner {
+    height: 20px;
+    width: auto;
+}
+
+.uni {
+    height: 20px;
+    width: auto;
 }
 
 .typing-dots {

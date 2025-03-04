@@ -25,7 +25,7 @@ import 'swiper/css/navigation';
 
 import warner from '../Images/WMG_Logo.jpg'
 import sony from '../Images/sony.png'
-import universal from '../Images/uni.png'
+import universal from '../Images/universal.png'
 
 import axos from '../Images/AxosProject_30.webp'
 import faiv from '../Images/FaivProject_30.webp'
@@ -919,8 +919,8 @@ Thinkgood è il punto di riferimento per chi cerca un ambiente creativo, profess
         </div>
 
         <div className="logo-container">
-            <p style={{ fontSize: '12px', textAlign: 'center', marginBottom:"-5px", zIndex:"2" }}>Supported by</p>
-            <div style={{zIndex:"1", backgroundColor:"transparent !important"}}>
+            <p style={{ fontSize: '12px', textAlign: 'center', marginBottom:"0px", zIndex:"2" }}>Supported by</p>
+            <div style={{zIndex:"1", backgroundColor:"transparent !important", display:"flex", justifyContent:"center", alignItems:"center", gap:10, marginLeft:"5px"}}>
                 <img className="warner" src={warner} alt="Logo 1" />
                 <img className="sony"src={sony} alt="Logo 2" />
                 <img className="uni"src={universal} alt="Logo 3" />
