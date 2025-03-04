@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { Squash as Hamburger } from 'hamburger-react'
+import emailjs from 'emailjs-com';
 
 import logo from '../LoghiTGM/ScrittaBianca.png';
 import sun from './ImageTheme/sun.png';
@@ -501,6 +502,31 @@ function Main() {
         { name: 'Alessio Cristello', role: 'Head of Sales', image: team, desc: 'Head of Sales', linkedin: 'https://www.linkedin.com/in/alessio-cristello-7b136a1bb/' }
     ];
 
+    // Modifica la funzione di invio del modulo
+    const handleSubmit = (event) => {
+        event.preventDefault(); // Previene il comportamento predefinito del modulo
+
+        const form = event.target; // Ottieni il modulo
+
+        // Invia l'email utilizzando EmailJS
+        emailjs.sendForm('service_a1a5ueq', 'template_974wxjq', form, 'NOucoWq9rU7rXkm34')
+            .then((result) => {
+                console.log('Email inviata con successo:', result.text);
+            }, (error) => {
+                console.log('Errore nell\'invio dell\'email:', error.text);
+            });
+
+        emailjs.sendForm('service_a1a5ueq', 'template_6eu1n9l', form, 'NOucoWq9rU7rXkm34')
+            .then((result) => {
+                console.log('Email inviata con successo:', result.text);
+            }, (error) => {
+                console.log('Errore nell\'invio dell\'email:', error.text);
+            });
+
+        // Resetta il modulo dopo l'invio
+        form.reset();
+    };
+
   return (
     <div className='main-container' id='main'>
         <p className='n_null' style={{display: 'none'}} />
@@ -827,20 +853,20 @@ Thinkgood è il punto di riferimento per chi cerca un ambiente creativo, profess
                         </iframe>
                     </div>
                     <div className='form-container'>
-                        <form  className="contact__form w-100">
+                        <form className="contact__form w-100" onSubmit={handleSubmit}>
                             <div className='row-input'>
                                 <input
                                     className="form-control-l"
                                     id="name"
-                                    name="name"
+                                    name="to_name"
                                     placeholder="Nome" 
                                     type="text"
                                     required 
                                 />
                                 <input
                                     className="form-control-l"
-                                    id="name"
-                                    name="name"
+                                    id="surname"
+                                    name="to_surname"
                                     placeholder="Cognome" 
                                     type="text"
                                     required 
@@ -849,7 +875,7 @@ Thinkgood è il punto di riferimento per chi cerca un ambiente creativo, profess
                             <input
                                 className="form-control rounded-0"
                                 id="email"
-                                name="email"
+                                name="to_email"
                                 placeholder="Email"
                                 type="email" 
                                 required 
