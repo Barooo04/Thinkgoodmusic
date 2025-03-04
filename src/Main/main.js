@@ -88,7 +88,7 @@ function Main() {
 
         async function startSession() {
             let uuid = '7f5e5376dbf045cd8c72c60f428653d1';
-            let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzQ1MDI4NiwianRpIjoiMTAyZGM5MDktYjk4ZS00MTQyLWEzY2YtODRjODFiNDFmMzg2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJhcGlfa2V5IjoiMWU5ZDAwNDU0MjBiMjcyYmU1NTBkYzViOTU1NTdkNmUzMzY5ZDQyYzVkM2ViMDVmNTQwMWM0ZGQzZTVmMDU1YSJ9LCJuYmYiOjE3Mzc0NTAyODZ9._b3nwv9vxA8ECRs0NSR92iNBLtzSHSPcsh68Ll5dZ7A';
+            let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0MTA3ODMyMiwianRpIjoiOWJjNWE5ZTgtY2Y3NC00MmVhLTlkZjgtYWJkNjc3ZjI2MGZlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJhcGlfa2V5IjoiMGI3ZjkxMmY5NDM2M2M2NjZiNmQxODEwMmViMTBjYWU1NjYzMTBiY2QwMTk4M2RkZGQ0ZmZhM2YyNDdjZTU0MiJ9LCJuYmYiOjE3NDEwNzgzMjJ9.oCyzHr44yNDaT6Kw7Or4kj8cSRy_gsZytvjhpAunzNU';
             let url = `https://app.gpt-trainer.com/api/v1/chatbot/${uuid}/session/create`;
             let risposta = await fetch(url, {
                 method: 'POST',
