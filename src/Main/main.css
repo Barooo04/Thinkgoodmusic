@@ -538,10 +538,13 @@ body {
     }
     .chatbot-input {
         font-size: 0.85rem !important;
+        padding: 10px;
     }
 
     .chatbot-start {
+        width: 70px;
         font-size: 0.85rem !important;
+        padding: 6px !important;
     }
 
     .powered {
