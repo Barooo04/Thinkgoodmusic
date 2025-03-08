@@ -269,7 +269,7 @@ body {
 .chatbot-input {
     position: relative;
     width: 70%;
-    padding: 20px;
+    padding: 15px;
     border-radius: 20px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -306,7 +306,7 @@ body {
 .chatbot-start {
     position: relative;
     width: 80px;
-    padding: 14px;
+    padding: 10px 12px 10px 12px;
     margin-right: 5px;
     background-color: rgba(0, 110, 230, 1);
     color: white;
