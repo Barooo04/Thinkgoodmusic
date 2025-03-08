@@ -569,7 +569,7 @@ function Main() {
             <div className='chatbot-input-container' style={{zIndex:"2 !important"}}>
                 <form id="messageArea" className="form-group" 
                 onSubmit={activateBot}>
-                    <input type='text' id="text" name="msg" className={invertTheme ? 'chatbot-input dark' : 'chatbot-input'} placeholder='Raccontaci il tuo progetto...' autoComplete='off' required/>
+                    <textarea type='text' id="text" name="msg" className={invertTheme ? 'chatbot-input dark' : 'chatbot-input'} placeholder='Raccontaci il tuo progetto...' autoComplete='off' required rows="1"/>
                     <button type="submit" id="send" className='chatbot-start'>Invia</button>
                 </form>
             </div>
