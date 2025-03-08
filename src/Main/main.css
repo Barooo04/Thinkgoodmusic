@@ -127,6 +127,20 @@ body {
     border: none;
 }
 
+.refresh-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    color: white;
+    visibility: hidden;
+}
+
+.refresh-icon.view {
+    visibility: visible;
+}
+
 .msg_card_body { 
 	overflow-y: auto;
 }

@@ -4,7 +4,7 @@ import './home.css'
 import { useState, useEffect } from 'react'
 import $ from 'jquery';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPhone, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faShieldAlt, faRotateRight } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { Squash as Hamburger } from 'hamburger-react'
 import emailjs from 'emailjs-com';
@@ -527,6 +527,16 @@ function Main() {
         form.reset();
     };
 
+    // Aggiungi questa nuova funzione per gestire il refresh
+    const handleRefresh = () => {
+        // Pulisci la chat
+        $("#messageFormeight").empty();
+        // Resetta la sessione UUID
+        setSessionUUID(null);
+        localStorage.removeItem('sessionUUID');
+
+    }
+
   return (
     <div className='main-container' id='main'>
         <p className='n_null' style={{display: 'none'}} />
@@ -560,6 +570,13 @@ function Main() {
             <img className={toBottom ? 'thinkgood beetween' : 'thinkgood'} src={logo} alt='Thinkgood' />
             <div className={toBottom ? 'chat-container view' : 'chat-container'}>
                 <div className="card">
+                    <div  className={toBottom ? 'refresh-icon view' : 'refresh-icon'}>
+                        <FontAwesomeIcon 
+                            icon={faRotateRight} 
+                            onClick={handleRefresh}
+                            style={{ color: invertTheme ? '#000' : '#fff', fontSize: '20px' }}
+                        />
+                    </div>
                     <div id="messageFormeight" className="card-body msg_card_body">
 
                         
