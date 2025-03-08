@@ -580,3 +580,9 @@ body {
         max-width: 1000px;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .main-container {
+        height: 90vh;
+    }
+}
