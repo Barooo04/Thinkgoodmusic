@@ -891,6 +891,14 @@ Thinkgood è il punto di riferimento per chi cerca un ambiente creativo, profess
                             </div>
                             <input
                                 className="form-control rounded-0"
+                                id="phone"
+                                name="to_phone"
+                                placeholder="Telefono"
+                                type="tel" 
+                                required 
+                            />
+                            <input
+                                className="form-control rounded-0"
                                 id="email"
                                 name="to_email"
                                 placeholder="Email"

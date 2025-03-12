@@ -1,6 +1,7 @@
 .privacy-policy-container {
     height: 50vh;
     margin: auto;
+    padding: 20px;
     font-family: Arial, sans-serif;
 }
 
@@ -102,7 +103,7 @@ ul {
 }
 
 .mini-footer-text-a:hover {
-    color: white !important; 
+    color: #222222 !important; 
     cursor: pointer;
     transition: 0.2s ease;  
 }

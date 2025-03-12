@@ -21,13 +21,13 @@ function Privacy() {
     return (
         <div className="privacy-policy-container">
             <div className={toBottom ?'navbar-container bars' : 'navbar-container'}>
-            <ul className='navbar-list'>
-                <li onClick={() => moveTo('chi-siamo')}>Chi Siamo</li>
-                <li onClick={() => moveTo('40oz-studio')}>40oz Studio</li>
-                <li onClick={() => moveTo('lavori')}>I Nostri Lavori</li>
-                <li onClick={() => moveTo('contatti')}>Contatti</li>
-            </ul>
-        </div>
+                <ul className='navbar-list'>
+                    <li onClick={() => moveTo('chi-siamo')}>Chi Siamo</li>
+                    <li onClick={() => moveTo('40oz-studio')}>40oz Studio</li>
+                    <li onClick={() => moveTo('lavori')}>I Nostri Lavori</li>
+                    <li onClick={() => moveTo('contatti')}>Contatti</li>
+                </ul>
+            </div>
             <h1>Privacy Policy</h1>
             <div className="section">
                 <h2>1. Tipologia di Dati Raccolti</h2>
@@ -38,6 +38,7 @@ function Privacy() {
                     <li>Nome</li>
                     <li>Cognome</li>
                     <li>Indirizzo email</li>
+                    <li>Numero di telefono</li>
                 </ul>
             </div>
 

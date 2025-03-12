@@ -420,6 +420,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 150px;
+
 }
 
 
@@ -437,7 +438,7 @@
 
 iframe {
     width: 100%; /* L'iframe riempie tutto il contenitore */
-    height: 350px;
+    height: 410px;
     border: none; /* Rimuove i bordi predefiniti */
 }
 
