@@ -498,7 +498,6 @@ function Main() {
     const members = [
         { name: "Lorenzo D'Ercole", role: 'A&R', image: team, desc: 'A&R', linkedin: 'https://www.linkedin.com/in/lorenzo-d-ercole-77682a224/' },
         { name: 'Simone Scarfone', role: 'Head of Visual & Branding', image: team, desc: 'Head of Visual & Branding', linkedin: 'https://www.linkedin.com/in/simone-scarfone-383b742b5/' },
-        { name: 'Valentina Pirovano', role: 'Social Media Manager', image: team, desc: 'Social Media Manager', linkedin: 'https://www.linkedin.com/' },
         { name: 'Alessio Cristello', role: 'Head of Sales', image: team, desc: 'Head of Sales', linkedin: 'https://www.linkedin.com/in/alessio-cristello-7b136a1bb/' }
     ];
 
@@ -681,7 +680,7 @@ function Main() {
                 <p className='founder-text' font-size="40px !important">Team</p>
                     <Swiper
                         modules={[Pagination, Navigation]}
-                        initialSlide={2}
+                        initialSlide={1}
                         slidesPerView={1} 
                         spaceBetween={10} 
                         centeredSlides={true}
